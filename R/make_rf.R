@@ -3,8 +3,8 @@
 ##' .. content for \details{} ..
 ##'
 ##' @title
-##' @param otu
-##' @param outcome
+##' @param otu The otu counts
+##' @param outcome The outcome of interest
 make_rf <- function(otu, outcome, max_otus) {
 
   variances <- select(otu, starts_with("x")) %>%
