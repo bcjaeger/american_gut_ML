@@ -14,6 +14,10 @@ library(tidymodels)
 library(ranger)
 library(magrittr)
 library(pROC)
+#phylogenetic tree tools
+library(ape)
+library(phytools)
+library(vegan)
 
 conflict_prefer("filter",    "dplyr")
 conflict_prefer("select",    "dplyr")
