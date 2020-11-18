@@ -21,6 +21,15 @@ make_otu_data <- function(file_path_meta,
     t() %>%
     as_tibble(rownames = "#SampleID")
 
+  #Compute Alpha Diversity (Shannon's Index)
+  #This process results in a vector w/ the sample IDs stripped
+  alpha_div <- sample_biom %>%
+    select(-`#SampleID`) %>%
+    diversity()
+
+  sample_biom <- sample_biom %>%
+    mutate(alpha_diversity = alpha_div)
+
   # merge the data into one dataset with the predictors and OTU data
   site_samples %>%
     left_join(sample_biom) %>%
